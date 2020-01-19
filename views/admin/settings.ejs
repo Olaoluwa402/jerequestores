@@ -1,0 +1,16 @@
+<diV class="container">
+<div class="row">
+	<div class="login w-50 mx-auto formtag"> 
+		<h2 class="" style="text-align: center"> Product limit Settings</h2>
+		<form action="/admin/save_settings" method="post">
+			<div class="form-group">
+				<label for="limit"></label>
+				<input class="form-control" id="limit" type="text" name="product_limit" value="<%= productLimit.product_limit%>">
+			</div>
+			<input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
+		    <button type="submit" class="btn btn-lg customBtn btn-block">Save settings</button>
+		</form>
+		<a href="/products"><i class="fa fa-arrow-left"></i> Go back</a>
+	</div> 
+</div>
+</diV>

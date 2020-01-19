@@ -1,0 +1,54 @@
+<div class="container mt-5 w-50 mx-auto">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">New Post</h2>
+            <form action="/blog/?_csrf=<%=csrfToken%>" method="post" class="p-3 bg-light" enctype="multipart/form-data">
+                <div class="form-row">
+                        <div class="form-group mb-0 col-12 ">
+                            <label for="title">Title:</label>
+                            <input class="form-control" id="title" type="text" name="blog[title]" placeholder="">
+                        </div>
+                  </div>
+                <div class="form-row">
+                      <div class="form-group mb-0 col-12 ">
+                         <label for="category">Category:</label>
+                        <select class="form-control" name= "category" > 
+                         <% categories.forEach(category => { %>
+                            <% if (category.id === blog.category) { %>
+                                <option selected label=""  value ="<%= category._id %>" ><%= category.name %></option>
+                                <% } else {%>
+                                <option label=""  value ="<%= category._id %>"><%= category.name %></option>
+                            <% } %>
+                         <%})%>
+                        </select>
+                      </div>
+                </div>
+                <br>
+                  <div class="form-row">
+                        <div class="form-group mb-0  col-12">
+                            <label for="img">Image:</label>
+                            <input type="file" id="img" name="image"   accept="image/*">
+                        </div>
+                  </div>
+                  <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="body">Post content:</label>
+                            <textarea class="form-control" id="body"   name="blog[body]" rows="6"> </textarea>
+                        </div>
+                   </div>
+                  <button class="btn btn-large formBtn"  type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                   Create Post
+                </button>
+               </form>
+               <script>
+                 CKEDITOR.replace( 'body' );
+               </script>
+        </div>
+    </div>
+</div>
+
+

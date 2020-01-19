@@ -1,0 +1,22 @@
+
+:root{
+    --primary: #ddd;
+    --dark:  #333;
+    --light:  #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8 );
+}
+
+/* htlm5 */
+article, aside, detail, figcaption, figure, footer, header, hgroup, menu, nav, section{
+    display: block;
+}
+
+html, body{
+	height: 100%;
+    width: 100%;
+	font-family: 'poppins', sans-serif;
+	color: black;
+    /* background-color: #fff; */
+}
+
+

@@ -1,0 +1,203 @@
+<!-- Full Page Intro -->
+          <div class="view " style="background-image: url('/img/pexels6.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: center center; height:400px">
+            <!-- Mask & flexbox options-->
+            <div class="mask">
+              <!-- Content -->
+              <div class="container">
+                <!--Grid row-->
+                <div class="row">
+                  <!--Grid column-->
+                  <div class="col-12 text-light text-center  mt-xl-5 mb-5 " data-wow-delay="">
+                    <h1 class="h1-responsive textDecorate text-center font-weight-bold mt-sm-5">JereQue Stores BLOG</h1>
+                  </div>
+                  <!--Grid column-->
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </div>
+              <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+          </div>
+          <div class="overlay"></div>
+
+
+<!-- blog section -->
+<section class="container-fluid mt-4 " style="">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row">
+				<% blogs.forEach(blog => { %>
+					<div class="col-12 col-sm-4">
+						<div class="card border-0 p-3 mb-" style="">
+						  <a class=""  href="/blog/<%= blog.slug %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
+						  <div class="card-body">
+						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title%></a></h5>
+						  	<em><%= blog.createdAt.toDateString() %></em>
+                <button type="button " class="pl-2" onclick="actOnBlog(event);"
+                    data-blog-id="<%= blog._id%>">Like
+                </button>
+                <span id="likes-count-<%= blog._id%>"><%= blog.likes%></span>
+						    <p class="card-text" ><%- blog.body.substring(0, 200)%>...</p>
+						    <a class=""  href="/blog/<%= blog.slug %>">Read more</a>
+                <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
+                </span>
+                <!-- loaded popover content -->
+                  <div class="container-fluid" id="popover-content" style="display: none">
+                     <div class="row">
+                        <div class="col-6">
+                            <ul class="list-group custom-popover">
+                              <li class="list-group-item"><a href="#">1</a></li>
+                              <li class="list-group-item"><a href="#">2</a></li>
+                              <li class="list-group-item"><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                             <ul class="list-group custom-popover">
+                              <li class="list-group-item"><a href="#">1</a></li>
+                              <li class="list-group-item"><a href="#">2</a></li>
+                              <li class="list-group-item"><a href="#">3</a></li>
+                            </ul>
+                        </div>
+                     </div>
+                  </div>
+
+						  </div>
+						  <hr>
+						</div>
+					</div>
+					<% }) %>
+			</div>
+
+      
+       <!-- next/previous button -->
+    <div class="row mb-2">
+      <div class="  col-md-12">
+        <button type="button" class="btn btn-success " onClick="getPrevious()";>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Previous
+        </button>
+        <button type="button" class="btn btn-success float-right buttonfloat" onClick="getNext()";>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Next
+        </button>
+      </div>
+    </div>
+		</div>
+		<div class="col-md-3">
+			<div class="" style="height:auto">
+				<div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    CONNECT WITH US
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  <!--connect container fluid -->
+          	<div class="container-fluid padding">
+          	    <div class="row padding">
+          	        <div class="col-12">
+          	            <div class="col-12 social padding">
+          	                <a href="#"><i class="fab fa-facebook"></i></a>
+          	                <a href="#"><i class="fab fa-twitter"></i></a>
+          	               <!--  <a href="#"><i class="fab fa-goggle-plus-g"></i></a> -->
+          	                <a href="#"><i class="fab fa-instagram"></i></a>
+          	                <a href="#"><i class="fab fa-youtube"></i></a>
+          	            </div>
+          	        </div>
+          	    </div> 
+          	</div>	
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    LATEST POSTS
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                    	<% blogs.forEach(blog => { %>
+                      <a class=""  href="/blog/<%= blog.slug %>">
+                      <div class="media">
+              			    <img src="<%= blog.image%>" class="align-self-start mr-3 w-25" alt="...">
+              			  <div class="media-body">
+              			    <h5 class="mt-0"><%= blog.title%></h5>
+              			    <em>Created: <%= blog.createdAt.toDateString() %></em>
+              			  </div>
+              		  </div>
+                  </a>
+              		<%})%>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    CATEGORIES
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="/category/5e12637e8024581920108986">AdWords/Digital Advertising</a></li>
+                    <li><a href="/category/5e1263608024581920108985">Analytics</a></li>
+                    <li><a href="#">Bing Predicts NFL</a></li>
+                    <li><a href="#">Content</a></li>
+                    <li><a href="/category/5e1263518024581920108984">Conversion Optimization</a></li>
+                    <li><a href="/category/5e12631f8024581920108983">eCommerce</a></li>
+                    <li><a href="/category/5e12630f8024581920108982">Email Marketing</a></li>
+                    <li><a href="/category/5e1262f58024581920108981">Internet Marketing Mysteries</a></li>
+                    <li><a href="/category/5e1262c98024581920108980">Local Listings</a></li>
+                    <li><a href="/category/5e1262a6802458192010897f">Mobile Web Design</a></li>
+                    <li><a href="/category/5e126297802458192010897e">Marketing</a></li>
+                    <li><a href="#">Olaoluwa News</a></li>
+                    <li><a href="">Search Engine Optimization</a></li>
+                    <li><a href="/category/5e126279802458192010897d">Social Media</a></li>
+                    <li><a href="/category/5e1259520c3d381570bef897">Web Design</a></li>
+                    <li><a href="/category/5e1259240c3d381570bef896">Web Development</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    ARCHIVES
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="#">January 2020</a></li>
+                    <li><a href="#">December 2019</a></li>
+                    <li><a href="#">November 2019</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+			</div>
+		</div>
+	</div>
+</section>
+

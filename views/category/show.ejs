@@ -1,0 +1,163 @@
+
+<div class="container">
+   <div class="row">
+   	 <div class="col-12">
+   	 	<h2 class="text-center">Top Quality items <i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2>
+   	 	<p class="text-center"><em>Our products are available in whole sale and in retail</em></p>
+     </div>
+   </div>
+   <hr class="category-header-bar">
+    <div class="row mx-auto category-cards">
+   	 <div class="col-12">
+   	 	<a href="/">Home <i class="fas fa-angle-double-right"></i></a>
+		<% catShow.forEach(cate => { %>
+				<span><%= cate.name%> </span>
+		<%})%>
+     </div>
+   </div>
+   	<div class="row mt-4 mx-auto category-cards" id="products">
+		<% products.forEach(product => { %>
+		  <div class="col-6 col-md-4"> 
+                <div class="card mb-2 landingCard">
+                    <a class=""  href="/products/<%= product.slug %>">
+                    <div class="cardWrapper">
+                     <img class="card-img-top img-fluid w-100" src="<%= product.image%>" alt="Card image cap"> 
+                    </div>
+                    </a>
+                  <div class="card-body p-1 lineH">
+                      <p class="cardTitle "><%=product.product_title%></p>
+                      <% if (product.rating === 0) { %>
+			               <em style="font-size:0.9rem;">No reviews yet.</em>
+			           <% } else { %>
+			               <span class="fa fa-star checked "></span>
+			               <span class="fa fa-star  <% if (product.rating > 1.5) { %> checked <% } %>"></span>
+			               <span class="fa fa-star <% if (product.rating > 2.5) { %> checked <% } %>"></span>
+			               <span class="fa fa-star <% if (product.rating > 3.5) { %> checked <% } %>"></span>
+			               <span class="fa fa-star <% if (product.rating > 4.5) { %> checked <% } %>"></span>
+			           <% } %>
+                      <p><span class="price"><span>&#8358 </span><b><%= product.price%></b></span></p>
+                      <a href="/shop/add-to-cart/<%= product._id%>" class="btn btn-outline-success text-success btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</a> 
+                  </div>
+              </div>
+         </div>
+       <% }) %>
+	</div>
+	<!-- next/previous button -->
+		<div class="row mt-1">
+			<div class="  col-md-12">
+				<button type="button" class="btn btn-success " onClick="getPrevious()";>Previous</button>
+				<button type="button" class="btn btn-success float-right buttonfloat" onClick="getNext()";>Next</button>
+			</div>
+		</div>
+</div>
+
+
+<script>
+
+	let page = 1; 
+	let limit = 20;
+	let myTotal = <%= myTotal.length%>;
+	let categoryId =  "<%=categoryId%>";
+	
+ function getNext(){
+ 	if(page * limit < myTotal){ 
+ 		page++;
+ 		$.ajax({
+            url: "/category/" + categoryId + "/get-category/" + page + "/" + limit,
+            type:"GET",
+            success: function(response){
+            	console.log(response);
+            	 renderBooks(response);
+            },
+             error: function(jqXHR, textStatus, errorThrown){
+            	console.log(jqXHR);
+            	console.log(textStatus);
+            	console.log(errorThrown);
+            }
+ 
+        });
+ 	 }
+ 		console.log("next page is" + page);
+ 	 
+ }
+
+
+ function getPrevious(){
+ 	if(page > 1){
+ 		page--;
+
+ 		$.ajax({
+             url: "/category/" + categoryId + "/get-category/" + page + "/" + limit,
+            type:"GET",
+            success: function(response){
+            	console.log(response);
+            	 renderBooks(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+            	console.log(jqXHR);
+            	console.log(textStatus);
+            	console.log(errorThrown);
+            }
+ 
+        });
+ 	}
+ 		console.log("previous page is" + page);
+ 	
+ }
+
+
+
+
+	function renderBooks(products) {
+		if(products.length > 0){
+			let html ="";
+
+			 for (let a=0; a < products.length; a++) {
+
+               html +='<div class="col-6 col-md-4">'; 
+                html +='<div class="card mb-2 landingCard">';
+                    html +='<a class=""  href="/products/' + products[a].slug + '">';
+                    html +='<div class="cardWrapper">';
+                     html +='<img class="card-img-top img-fluid w-100" src="' +  products[a].image + '" alt="product image">'; 
+                    html +='</div>';
+                    html +='</a>';
+                  html +='<div class="card-body p-1 lineH">';
+                      html +='<p class="cardTitle ">' + products[a].product_title + '</p>';
+         
+                      html +='<p><span class="price"><span>&#8358 </span><b>' +  products[a].price + '</b></span></p>';
+                      html +='<a href="/shop/add-to-cart/' + products[a]._id + '" class="btn btn-outline-success text-success btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</a>'; 
+                  html +='</div>';
+             html +=' </div>';
+         html +='</div>';
+
+
+				 // html +='<div class="card mb-4 mt-4 mx-auto" style="max-width: 540px;">';
+					//   html +=' <div class="row no-gutters">';
+
+					//    html +='  <div class="col-md-6">';
+					//      html +='<img  style="width:100%; height: 100%" src="' + products[a].image +  '"alt="Card image cap">';
+					//    html +='  </div>';
+					//    html +='  <div class="col-md-6">';
+					//      html +='  <div class="card-body">';
+					//      html +=' <h5 class="card-title"><strong>' + products[a].book_title + '</strong></h5>';
+					//         html +='<h6 class=""><small>' + products[a].category.name + '</small></h6>';
+					//            html +=' <div class="availa float-right">' + products[a].availability + '</div>';
+					//           html +='  <div><strong><span>&#8358</span>' + products[a].price + '</strong></div>';
+					//           html +='  <a href="/shop/add-to-cart/' + products[a]._id + '" class="btn btn-outline-primary btn-sm">Add to Cart</a>';
+					// 		  html +='  <a class="btn btn-primary btn-sm"  href="/products/' + products[a]._id + '"> more info</a>';
+					//     html +='   </div>';
+					//     html +=' </div>';
+					//   html +=' </div>';
+				 //  html +='</div>';
+							
+			}
+
+			 $("#products").html(html);
+	}
+}
+
+	
+
+   
+</script>
+	

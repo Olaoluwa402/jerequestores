@@ -1,0 +1,107 @@
+
+
+
+<div class="container">
+    <div class="row  ">
+        <div class="mx-auto">
+        <h2 class="text-center">Create new Product</h2>
+        <%= typeof msg != 'undefined' ? msg: ''%>
+        <form action="/products/?_csrf=<%=csrfToken%>" method="POST" enctype="multipart/form-data" data-toggle="validator" role="form" class="pl-3 pr-3">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="title">Title</label>
+                <input class="form-control" type="text" name="product_title" value= "<%= product.product_title%>" placeholder="Product title" required>
+                <div class="help-block with-errors" style="color: #ae323b"></div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="category">Category</label>
+                <select class="form-control" name= "category" > 
+                 <% categories.forEach(category => { %>
+                    <% if (category.id === product.category) { %>
+                        <option selected label=""  value ="<%= category._id %>" ><%= category.name %></option>
+                        <% } else {%>
+                        <option label=""  value ="<%= category._id %>"><%= category.name %></option>
+                    <% } %>
+                 <%})%>
+                </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="img">Cover image</label>
+                 <input type="file" multiple id="cover" name="image"  class="form-control-file border">
+                 <div class="help-block with-errors" style="color: #ae323b"></div>
+            </div>
+          </div>
+           <div class="row">
+                <span id="prev-text1"></span>
+                <div class="col-md-12">
+                  <div class="preview-cover"></div>
+                </div>
+          </div>
+            
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="img">Upload image 1</label>
+                 <input type="file" multiple id="image1" name="image_1" class="form-control-file border">
+                 
+            </div>
+            <div class="form-group col-md-6">
+                <label for="img">Upload image 2</label>
+                 <input type="file" multiple id="image2" name="image_2" class="form-control-file border">
+                 
+            </div>
+          </div>
+              <div class="row">
+                <span id="prev-text2"></span>
+                <div class="col-md-12">
+                  <div class="preview-images"></div>
+                </div>
+              </div>
+
+          <div class="form-row">
+                 <div class="form-group col-md-12">
+                 <label for="price">Price</label>
+                 <input class="form-control" type="number" min="1" name="price" value= "<%= product.price%>" placeholder="price">
+            </div>
+          </div>
+          
+          <div class="form-row">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="availability" id="inlineRadio1" value=""> In stock
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                   <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="availability" id="inlineRadio2" value="Out of stock"> Out of stock
+                  </label>
+                </div>
+          </div>
+           <div class="form-row">
+                <div class="form-group col-md-12">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" data-error="Please enter Description field."  name="description" rows="9" required><%= product.description%></textarea>
+                <div class="help-block with-errors" style="color: #ae323b"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn customBtn btn-lg float-right">Create New</button>
+           <a type="button" class="btn customBtn btn-lg float-right mr-1" href="/">Cancel</a>
+        </form>
+
+         <script>
+            CKEDITOR.replace( 'description' );
+         </script>
+    </div>
+</div>
+</div>
+
+
+<!-- 
+<div id="editor">
+    <p>This is the editor content.</p>
+</div>
+<script src="../node_modules/ckeditor4/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'editor' );
+</script>  -->
