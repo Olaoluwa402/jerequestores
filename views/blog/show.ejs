@@ -50,10 +50,10 @@
 	</div>
 	<div class="row">
 		 <div>
-		 	<a class="btn pr-3" href="/blog/<%=blog._id%>/edit">Edit</a>
+		 	<a class="btn pr-3" href="/blog/<%=blog._id%>/edit">EDIT</a>
 		 </div>
          <form  method="POST" action="/blog/<%=blog._id%>?_method=DELETE">
-            <button class="btn ml-4" type="">Delete Story</button>
+            <button class="btn ml-4" type="">DELETE</button>
             <input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
          </form>
 	</div>
@@ -92,11 +92,11 @@
           <div class="row mt-4 mb-4">
             <div class="col-md-12">
                <div class="card">
-                  <div class="card-body p-4">
+                  <div class="card-body ">
                      
                      <div class="text-right">
-                       <a class="btn btn-primary" href="/blog/<%= blog.slug %>/comments/new">
-                            Write a New Comment</a>
+                       <a class="btn customBtn" href="/blog/<%= blog.slug %>/comments/new">
+                            New Comment</a>
                     </div>
                      <hr>
 
@@ -104,32 +104,32 @@
                  
                     <% blog.comments.forEach(function(comment){ %>
                         <div class="media">
-						  <img src="/img/user2.jpg" class="mr-3" alt="user's profile picture">
+						  <img src="/img/user2.jpg" class="mr-1" alt="user's profile picture">
 						  <div class="media-body">
 						    <span class="mt-0"><%= comment.author.lastName %></span>
-						    <span class="float-right"><%= comment.createdAt.toDateString() %></span>
+						    <p class="float-sm-right"><%= comment.createdAt.toDateString() %></p>
 						    <p><%= comment.text %>  </p>
-						    <a style="text-transform: lowercase" class="btn btn-xs btn-inline" href="/blog/<%= blog.slug %>/comments/<%= comment._id %>/replies/new">reply</a>
+						    <a style="text-transform: lowercase" class="" href="/blog/<%= blog.slug %>/comments/<%= comment._id %>/replies/new">reply</a>
 						            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
-						                <a style="text-transform: lowercase" class="btn btn-xs btn-inline" href="/blog/<%= blog.slug %>/comments/<%= comment._id %>/edit">Edit</a>
+						                <a style="text-transform: lowercase" class="" href="/blog/<%= blog.slug %>/comments/<%= comment._id %>/edit">Edit</a>
 						                   <form class="btn-inline" action="/blog/<%=blog.slug %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
-						                       <input type="submit" class="btn btn-xs" value="Delete" style="text-transform: lowercase">
+						                       <input type="submit" class="btn-inline" value="Delete" style="text-transform: lowercase">
 						                       <input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
 						                    </form>
 						                  <% }%>
 						    <% comment.replies.forEach(function(reply){ %>
 						    <div class="media mt-3">
-						      <a class="mr-3" href="#">
-						        <img src="/img/user2.jpg" class="mr-3" alt="user's profile picture">
+						      <a class="mr-1" href="#">
+						        <img src="/img/user2.jpg" class="mr-1" alt="user's profile picture">
 						      </a>
 						      <div class="media-body">
 						        <span class="mt-0"><%= reply.author.lastName %></span>
-						        <span class="float-right"><%=reply.createdAt.toDateString() %></span>
+						        <p class="float-sm-right"><%=reply.createdAt.toDateString() %></p>
 						        <p><%=reply.text %></p>
 						            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
 						                <a style="text-transform: lowercase" class="btn btn-xs btn-inline" href="/blog/<%= blog.slug %>/comments/<%= comment._id %>/edit">Edit</a>
 						                   <form class="btn-inline" action="/blog/<%=blog.slug %>/comments/<%=comment._id %>?_method=DELETE" method="POST">
-						                       <input type="submit" class="btn btn-xs" value="Delete" style="text-transform: lowercase">
+						                       <input type="submit" class="btn-inline" value="Delete" style="text-transform: lowercase">
 						                       <input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
 						                    </form>
 						                  <% }%>

@@ -676,6 +676,33 @@ hr.light-100{
     overflow: hidden;
 }
 
+
+.subscribe{
+    height: auto;
+    border: 2px solid #dd4b39 ;
+    background: #fff;
+}
+
+.share{
+    color:#dd4b39; !important;
+    cursor: pointer;
+}
+.mask{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4)
+}
+
+.readmore{
+   color: #dd4b39;
+}
+.readmore:hover{
+   color: blue;
+}
+
+.btn-inline {
+    display: inline-block;
+}
+
 /* ---Media Queries --*/
 @media (max-width : 992px){
         .social a {
@@ -782,6 +809,8 @@ hr.light-100{
         .shopping-cart-side{
             max-width: 100%;
         }
+
+
 
 }
 

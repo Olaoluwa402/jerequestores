@@ -8,7 +8,7 @@
                 <div class="row">
                   <!--Grid column-->
                   <div class="col-12 text-light text-center  mt-xl-5 mb-5 " data-wow-delay="">
-                    <h1 class="h1-responsive textDecorate text-center font-weight-bold mt-sm-5">JereQue Stores BLOG</h1>
+                    <h1 class="h1-responsive py-5 textDecorate text-center font-weight-bold ">JereQue Stores BLOG</h1>
                   </div>
                   <!--Grid column-->
                   <!--Grid column-->
@@ -25,21 +25,21 @@
 <!-- blog section -->
 <section class="container-fluid mt-4 " style="">
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-12 col-lg-9">
 			<div class="row">
 				<% blogs.forEach(blog => { %>
-					<div class="col-12 col-sm-4">
+					<div class="col-12 col-sm-6 col-lg-4">
 						<div class="card border-0 p-3 mb-" style="">
 						  <a class=""  href="/blog/<%= blog.slug %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
 						  <div class="card-body">
 						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title%></a></h5>
 						  	<em><%= blog.createdAt.toDateString() %></em>
-                <button type="button " class="pl-2" onclick="actOnBlog(event);"
-                    data-blog-id="<%= blog._id%>">Like
-                </button>
+               <!--  <button type="button " class="pl-2" onclick="actOnBlog(event);"
+                    data-blog-id="">Like
+                </button> -->
                 <span id="likes-count-<%= blog._id%>"><%= blog.likes%></span>
 						    <p class="card-text" ><%- blog.body.substring(0, 200)%>...</p>
-						    <a class=""  href="/blog/<%= blog.slug %>">Read more</a>
+						    <a class="readmore"  href="/blog/<%= blog.slug %>">Read more</a>
                 <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
                 </span>
                 <!-- loaded popover content -->
@@ -90,7 +90,7 @@
       </div>
     </div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-12 col-lg-3">
 			<div class="" style="height:auto">
 				<div class="accordion" id="accordionExample">
             <div class="card">
@@ -105,19 +105,19 @@
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                   <!--connect container fluid -->
-          	<div class="container-fluid padding">
-          	    <div class="row padding">
-          	        <div class="col-12">
-          	            <div class="col-12 social padding">
-          	                <a href="#"><i class="fab fa-facebook"></i></a>
-          	                <a href="#"><i class="fab fa-twitter"></i></a>
-          	               <!--  <a href="#"><i class="fab fa-goggle-plus-g"></i></a> -->
-          	                <a href="#"><i class="fab fa-instagram"></i></a>
-          	                <a href="#"><i class="fab fa-youtube"></i></a>
-          	            </div>
-          	        </div>
-          	    </div> 
-          	</div>	
+                  	<div class="container-fluid padding">
+                  	    <div class="row padding">
+                  	        <div class="col-12">
+                  	            <div class="col-12 social padding">
+                  	                <a href="#"><i class="fab fa-facebook"></i></a>
+                  	                <a href="#"><i class="fab fa-twitter"></i></a>
+                  	               <!--  <a href="#"><i class="fab fa-goggle-plus-g"></i></a> -->
+                  	                <a href="#"><i class="fab fa-instagram"></i></a>
+                  	                <a href="#"><i class="fab fa-youtube"></i></a>
+                  	            </div>
+                  	        </div>
+                  	    </div> 
+                  	</div>	
                 </div>
               </div>
             </div>
@@ -156,22 +156,22 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   <ul>
-                    <li><a href="/category/5e12637e8024581920108986">AdWords/Digital Advertising</a></li>
-                    <li><a href="/category/5e1263608024581920108985">Analytics</a></li>
+                    <li><a href="/category/adwords-digital-advertizing">AdWords/Digital Advertising</a></li>
+                    <!-- <li><a href="/category/5e1263608024581920108985">Analytics</a></li>
                     <li><a href="#">Bing Predicts NFL</a></li>
                     <li><a href="#">Content</a></li>
                     <li><a href="/category/5e1263518024581920108984">Conversion Optimization</a></li>
                     <li><a href="/category/5e12631f8024581920108983">eCommerce</a></li>
-                    <li><a href="/category/5e12630f8024581920108982">Email Marketing</a></li>
-                    <li><a href="/category/5e1262f58024581920108981">Internet Marketing Mysteries</a></li>
-                    <li><a href="/category/5e1262c98024581920108980">Local Listings</a></li>
+                    <li><a href="/category/5e12630f8024581920108982">Email Marketing</a></li> -->
+                    <li><a href="/category/internet-marketing-mysteries">Internet Marketing Mysteries</a></li>
+                   <!--  <li><a href="/category/5e1262c98024581920108980">Local Listings</a></li>
                     <li><a href="/category/5e1262a6802458192010897f">Mobile Web Design</a></li>
                     <li><a href="/category/5e126297802458192010897e">Marketing</a></li>
                     <li><a href="#">Olaoluwa News</a></li>
                     <li><a href="">Search Engine Optimization</a></li>
                     <li><a href="/category/5e126279802458192010897d">Social Media</a></li>
                     <li><a href="/category/5e1259520c3d381570bef897">Web Design</a></li>
-                    <li><a href="/category/5e1259240c3d381570bef896">Web Development</a></li>
+                    <li><a href="/category/5e1259240c3d381570bef896">Web Development</a></li> -->
                   </ul>
                 </div>
               </div>
