@@ -707,14 +707,14 @@ hr.light-100{
 /* ---Media Queries --*/
 @media (max-width : 992px){
         .social a {
-            font-size: 4em;
-            padding: 2rem;
+            font-size: 2em;
+            padding: 1.1rem;
         }
 }
 @media (max-width : 768px){
         .social a {
-            font-size: 2.5em;
-            padding: 1.2rem;
+            font-size: 1.5em;
+            padding: 0.9rem;
         }
 
          /* #sidebar {
@@ -757,8 +757,8 @@ hr.light-100{
 }
 
 @media (max-width: 576px) {
-        .social a {font-size: 2em;
-                padding: .7rem;
+        .social a {font-size: 1.2em;
+                padding: .5rem;
             }
             .box1{
             text-align: center;
