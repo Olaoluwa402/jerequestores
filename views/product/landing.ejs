@@ -17,118 +17,68 @@
    </div> -->
 <!-- <div class="container-fluid sideBarScroll"> -->
 
-<div class="hideScroll p-0">
+<div class="hideScroll ">
  <ul class="sideBarScroll">
    <li>
-     <a href="/category/kitchen">
+      <a href="/category/household-items">
        <div class="icon">
           <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
            
            <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
            <img class="fa rounded" src=" img/home.png">
        </div>
-       <div class="name"><span  data-text="Home">Home</span></div>
+       <div class="name"><span  data-text="Home">Household</span></div>
      </a>
    </li>
 
     <li>
-     <a href="/category/footwares">
+     <a href="/category/kitchen-wares">
        <div class="icon">
           <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
            
            <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
            <img class="fa rounded" src=" img/bags2.jpeg">
        </div>
-       <div class="name"><span  data-text="Home">Clothings</span></div>
-     </a>
-   </li>
-
-   <li>
-     <a href="/category/5df97b0402a6c4001755a4ea">
-       <div class="icon">
-        <img class="fa rounded" src=" img/mobiles2.png">
-          <!-- <i class="fa fa-envelope" aria-hidden="true"></i>
-           -->
-          <!-- <i class="fa fa-envelope" aria-hidden="true"> </i>
-       </div>
-       <div class="name"><span  data-text="About">About</span></div>
+       <div class="name"><span  data-text="Home">Kitchen <br>Wares</span></div>
      </a>
    </li>
    <li>
-     <a href="#">
-       <div class="icon">
-          
-          <i class="fa fa-cogs" aria-hidden="true"></i>
-          
-           <i class="fa fa-cogs" aria-hidden="true"></i> -->
-       </div>
-       <div class="name"><span  data-text="Services">Kitchen</span></div>
-     </a>
-   </li>
-   <li>
-     <a href="/category/5df97b3b02a6c4001755a4eb">
+     <a href="/category/toilet-and-bathroom">
        <div class="icon">
         <img class="fa rounded" src=" img/electronics.jpeg">
         <!--   <i class="fa fa-home" aria-hidden="true"></i> -->
          
           </div>
-       <div class="name"><span  data-text="Portfolio">Footwares</span></div>
+       <div class="name"><span  data-text="Portfolio">Toilet & <br>Bathroom</span></div>
      </a>
    </li>
    <li>
-     <a href="/category/5df97b6302a6c4001755a4ec">
+     <a href="/category/clothings">
        <div class="icon">
         <img class="fa rounded" src=" img/baby.jpeg">
           <!-- <i class="fa fa-users" aria-hidden="true"></i> -->
           
        </div>
-       <div class="name"><span  data-text="Team">Toys</span></div>
+       <div class="name"><span  data-text="Team">Clothings</span></div>
      </a>
    </li>
    <li>
-     <a href="/category/5df97bab02a6c4001755a4ed">
+    <a href="/category/foot-wears">
        <div class="icon">
         <img class="fa rounded" src=" img/nike.jpeg">
         <!--   <i class="fa fa-home" aria-hidden="true"></i> -->
            
        </div>
-       <div class="name"><span  data-text="Contact">Sports</span></div>
+       <div class="name"><span  data-text="Contact">Foot-Wears</span></div>
      </a>
    </li>
    <li>
-     <a href="/category/5df97bb902a6c4001755a4ee">
+     <a href="/category/educational-materials">
        <div class="icon">
          <img class="fa rounded" src=" img/sports.png">
           <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
         </div>
-       <div class="name"><span data-text="Info">Movies</span></div>
-     </a>
-   </li>
-    <li>
-     <a href="/category/5df97bda02a6c4001755a4ef">
-       <div class="icon">
-         <img class="fa rounded" src=" img/kitchen.png">
-          <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
-        </div>
-       <div class="name"><span data-text="Info">Books</span></div>
-     </a>
-   </li>
-    <li>
-     <a href="#">
-       <div class="icon">
-         <img class="fa rounded" src=" img/bags.jpeg">
-          <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
-        </div>
-       <div class="name"><span data-text="Info">Accessory</span></div>
-     </a>
-   </li>
-    <li>
-     <a href="/category/5df97be902a6c4001755a4f0">
-       <div class="icon">
-         <img class="fa rounded" src=" img/gadget2.jpeg">
-          <!-- <i class="fa fa-home" aria-hidden="true"></i> -->
-        </div>
-       <div class="name"><span data-text="Info">Information</span></div>
+       <div class="name"><span data-text="Info">Educational <br>Materials</span></div>
      </a>
    </li>
  </ul>
@@ -224,7 +174,7 @@
 
 
 
-		<!-- show all books -->
+		<!-- show all products -->
 
 <div class="container mt-5">
 	<div class="row" id="products">
@@ -233,15 +183,13 @@
                 <div class="card mb-2 landingCard">
                   <a class=""  href="/products/<%= product.slug %>">
                    <div class="cardWrapper">
-                      <img class="card-img-top img-fluid w-100" src="<%= product.image%>" alt="Card image cap"> 
+                      <img class="card-img-top img-fluid w-100" src="<%= product.image%>" alt="product image"> 
                    </div>
                    </a>
                   <div class="card-body p-1 lineH">
                       <p class="cardTitle "><%=product.product_title%></p>
                       <p><span class="price"><span>&#8358 </span><b><%= product.price%></b></span></p>
-                      <p class="availa"><%= product.availability%></p>
-                      
-                            <a href="/shop/add-to-cart/<%= product._id%>" class="btn btn-outline-success text-success btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</a> 
+                      <a href="/shop/add-to-cart/<%= product._id%>" class="btn btn-outline-success text-success btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</a> 
                       
                   </div>
                 </div>
@@ -338,12 +286,7 @@
   </div>
   <div class="row mt-2">
     <div class="col-md-12">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Jereque stores is an online store that deals in the supply of unique Household and Kitchen wares thereby giving your home a feel of goodness. <b>Your Home, Your Goodness! <i class="fas fa-thumbs-up"></i></b></p>
     </div>
   </div>
   <div class="row whyShop p-3">
@@ -353,12 +296,8 @@
   </div>
   <div class="row mt-2">
     <div class="col-md-12">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Here at Jereque Stores, we ensure our customers get; value for their money, easy delivery with our nationwide delivery system, beautiful and unique household items for your homes, unique kitchen wares for stress free work in the kitchen. Gift and Souvenir
+    items for all occasions, beautiful and unique kitchen decoration items. <b>Your Home, Your Goodness! <i class="fas fa-thumbs-up"></i></b> </p>
     </div>
   </div>
 </div>

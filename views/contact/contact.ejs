@@ -13,15 +13,16 @@
 		<div class="col-md-6 mt-3">
 			<div><h2>The Office</h2></div>
 			<div>
-				<h3><strong>Address:</strong>  No 27 Cac Road, gbanda, Ibadan</h3>
-				<h3><strong>Phone:</strong>  0806 740 5858</h3>
-				<h3><strong>Email:</strong> hello@jerquestore.com.ng</h3>
+				<h3><strong>Address:</strong>  No 27, CAC close, Gbanda along Arulogun road, Ojoo Ibadan. Oyo State</h3>
+				<h3><strong>Phone:</strong>  0806 740 5858 or 08022495563</h3>
+				<h3><strong>WhatsApp:</strong>  0806 740 5858 or 08120060260</h3>
+				<h3><strong>Email:</strong> jerequestores@gmail.com</h3>
 			</div>
 		
 			<div><h2>Business Hours</h2></div>
 			<div>
 				<h3>Monday - Friday 9am to 5pm</h3>
-				<h3>Saturday - 10am to 5pm</h3>
+				<h3>Saturday - 9am to 5pm</h3>
 				<h3>Sunday - Closed</h3>
 			</div>
 		</div>
@@ -44,7 +45,7 @@
 		    map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		  
 
-		   let address = "No 27 Cac Road, gbanda, Ibadan";
+		   let address = "No 27, CAC close, Gbanda along Arulogun road, Ojoo Ibadan";
 		   	 geocoder.geocode( {address: address}, function(results, status) {
 		      if (status == 'OK') {
 		        map.setCenter(results[0].geometry.location);
@@ -55,7 +56,7 @@
 
 		        // maker info
 		        let infoWindow = new google.maps.InfoWindow({
-		        	content: '<h1>No 27 Cac Road, gbanda, Ibadan</h1>'
+		        	content: '<h1>No 27, CAC close, Gbanda along Arulogun road, Ojoo Ibadan</h1>'
 		        });
 		        // marker listener
 		       marker.addListener('click', function(){

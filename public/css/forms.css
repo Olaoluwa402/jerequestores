@@ -226,7 +226,7 @@ a[data-toggle="collapse"] {
 }
 .sideBarScroll li a{
     text-decoration: none;
-    padding: 0 30px;
+    padding: 10px 30px;
     display: block;
 }
 

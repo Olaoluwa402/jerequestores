@@ -1,5 +1,5 @@
 <!-- Full Page Intro -->
-          <div class="view " style="background-image: url('/img/pexels6.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: center center; height:400px">
+          <div class="view " style="background-image: url('/img/jereque1.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: center center; height:400px">
             <!-- Mask & flexbox options-->
             <div class="mask">
               <!-- Content -->
@@ -8,7 +8,8 @@
                 <div class="row">
                   <!--Grid column-->
                   <div class="col-12 text-light text-center  mt-xl-5 mb-5 " data-wow-delay="">
-                    <h1 class="h1-responsive py-5 textDecorate text-center font-weight-bold ">JereQue Stores BLOG</h1>
+                    <h1 class="h1-responsive py-5 textDecorate text-center font-weight-bold animated zoomIn" style="animation-delay: 1s">
+                    JereQue Stores BLOG</h1>
                   </div>
                   <!--Grid column-->
                   <!--Grid column-->
@@ -31,7 +32,7 @@
 					<div class="col-12 col-sm-6 col-lg-4">
 						<div class="card border-0 p-3 mb-" style="">
 						  <a class=""  href="/blog/<%= blog.slug %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
-						  <div class="card-body">
+						  <div class="card-body pl-1 pr-1">
 						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title%></a></h5>
 						  	<em><%= blog.createdAt.toDateString() %></em>
                <!--  <button type="button " class="pl-2" onclick="actOnBlog(event);"
