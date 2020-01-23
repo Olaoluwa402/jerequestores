@@ -28,6 +28,11 @@ a:focus {
     transition: all 0.3s;
 }
 
+.social a{
+    font-size: 4.5em !important;
+    padding: 3rem;
+}
+
 .navbar {
  
     padding: 15px 10px;
@@ -367,10 +372,6 @@ a[data-toggle="collapse"] {
 
  Social
  */
-.social a{
-    font-size: 4.5em;
-    padding: 3rem;
-}
 
 .fa-facebook{
     color:  #3b5998;
@@ -384,9 +385,9 @@ a[data-toggle="collapse"] {
 .fa-instagram{
     color: #517fa4;
 }
-.fa-youtube{
+/* .fa-youtube{
     color: #bb0000;
-}
+} */
 
 .fa-star{
     font-size: 75%;

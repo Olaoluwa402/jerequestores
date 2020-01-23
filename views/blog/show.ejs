@@ -49,6 +49,7 @@
 		</div>
 	</div>
 	<div class="row">
+		 <% if(currentUser && currentUser.isAdmin){%>
 		 <div>
 		 	<a class="btn pr-3" href="/blog/<%=blog._id%>/edit">EDIT</a>
 		 </div>
@@ -56,38 +57,39 @@
             <button class="btn ml-4" type="">DELETE</button>
             <input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
          </form>
+             <% }%>
 	</div>
 </div>
 
 <!-- share content on social -->
 <div class="container-fluid text-center mt-2 mb-2 py-4 showsocial" style="height: auto; background-color: #ddd;">
 	 <div row>
-	 	    <h2 class="text-light">Share this Article</h2>
+	 	    <h3 class="text-light">Share this Article</h3>
 	 	 <!--Facebook-->
-			<a type="button" class="btn btn-fb text-light" style="background-color: #3b5998;"><i class="fab fa-facebook-f pr-1"></i> Facebook</a>
+			<a type="button" class="btn btn-fb text-light mb-2" style="background-color: #3b5998;"><i class="fab fa-facebook-f pr-1"></i> Facebook</a>
 			<!--Twitter-->
-			<a type="button" class="btn btn-tw text-light" style="background-color: #00aced;"><i class="fab fa-twitter pr-1"></i> Twitter</a>
+			<a type="button" class="btn btn-tw text-light mb-2" style="background-color: #00aced;"><i class="fab fa-twitter pr-1"></i> Twitter</a>
 			<!--Google +-->
-			<a type="button" class="btn btn-gplus" style="background-color: #dd4b39;"><i class="fab fa-google-plus-g pr-1"></i> Google +</a>
+			<a type="button" class="btn btn-gplus mb-2" style="background-color: #dd4b39;"><i class="fab fa-google-plus-g pr-1"></i> Google +</a>
 			<!--Instagram-->
-			<a type="button" class="btn btn-ins text-light" style="background-color: #517fa4;"><i class="fab fa-instagram pr-1"></i> Instagram</a>
+			<a type="button" class="btn btn-ins text-light mb-2" style="background-color: #517fa4;"><i class="fab fa-instagram pr-1"></i> Instagram</a>
 			<!--Pinterest-->
 	 </div>
 </div>
 <!-- subscribe -->
-<div class="container-fluid text-center mb-2 py-4 subscribe" style="">
+<!-- <div class="container-fluid text-center mb-2 py-4 subscribe" style="">
 	 <div row>
 	 	      <p><b>Join 1000+ fellow business owners!</b></p>
 	 	      <p>Subscribe to Growth Tips for local stores</p>
 	 	    <a href="#" class="btn text-light">SUBSCRIBE</a>
 	 </div>
 </div>
-
+ -->
 
   <!-- review and rating -->
        <div class="container mt-4 mb-4">
           <div class="row pl-3 pr-3">
-              <h2>Comment</h2>
+              <h5>Leave Comment</h5>
           </div>
           <div class="row mt-4 mb-4">
             <div class="col-md-12">
