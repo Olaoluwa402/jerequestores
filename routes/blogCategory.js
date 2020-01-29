@@ -49,48 +49,49 @@ router.post("/", async (req, res) => {
     }
  });
 
-//  // Render all blogs under each category
-// router.get("/:id", async (req, res) => {
-// 	// res.send("Category" + req.params.id)
-// 	try{ 
-// 		const resp = await Blog.find().sort({createdAt: 'desc'}).populate({"path": "category", match:{"_id":req.params.id}}).exec();
-// 		const blogs = resp.filter(function(i){
-// 			    return i.category != null;
-// 			  });
-//     console.log(blogs)
-//     const myTotalResp= await Blog.find().populate({"path": "category", match:{"_id":req.params.id}}).exec();
-//     const myTotal = myTotalResp.filter(function(i){
-//           return i.category != null;
-//         });
-//     const catShow = await Category.find({"_id":req.params.id});
-//     const latestBlogs = await Blog.find().sort({createdAt: 'desc'})
-//     const categoryId = req.params.id
-// 			 res.render("categories/showAll", {blogs: blogs, myTotal: myTotal, categoryId:categoryId, catShow:catShow, latestBlogs:latestBlogs});
-// 	} catch{
-// 		    	req.flash("error", "something went wrong with fetching associated blogs");
-// 		  		res.redirect("/blogs");
-//        }
-//      });
+ // Render all blogs under each category
+router.get("/:slug", async (req, res) => {
+	// res.send("Category" + req.params.id)
+	try{ 
+		const resp = await Blog.find().sort({createdAt: 'desc'}).limit(12).populate({"path": "category", match:{"slug":req.params.slug}}).exec();
+		const blogs = resp.filter(function(i){
+			    return i.category != null;
+			  });
+    const myTotalResp= await Blog.find().populate({"path": "category", match:{"slug":req.params.slug}}).exec();
+    const myTotal = myTotalResp.filter(function(i){
+          return i.category != null;
+        });
+    const catShow = await Blog_Category.find({"slug":req.params.slug});
+    const latestBlogs = await Blog.find().sort({createdAt: 'desc'}).limit(12)
+    const categoryId = req.params.slug
+    console.log(blogs)
+			 res.render("blog-category/showAll", {blogs: blogs, myTotal: myTotal, categoryId:categoryId, catShow:catShow, latestBlogs:latestBlogs});
+	} catch(err){
+          console.log(err)
+		    	req.flash("error", "something went wrong with fetching associated blogs");
+		  		res.redirect("/blog");
+       }
+     });
 
-// // ajax call for pagination
-// router.get("/:id/get-category/:page/:limit", async (req, res) => {
-//   const page = req.params.page
-//   const limit = req.params.limit
+// ajax call for pagination
+router.get("/:slug/get-category/:page/:limit", async (req, res) => {
+  const page = req.params.page
+  const limit = req.params.limit
 
-//   const startIndex = (page - 1) * limit
-//   const endIndex = page * limit
-//    try{
-//     const resp = await Blog.find().populate({"path": "category", match:{"_id":req.params.id}}).sort({createdAt: 'desc'}).skip(parseInt(startIndex)).limit(parseInt(limit)).exec();
-//     const blogs = resp.filter(function(i){
-//           return i.category != null;
-//         });
-//     res.send(blogs);
-//    } catch(error){
-//       if(error){
-//         console.log(error);
-//       }
-//    }
-// })
+  const startIndex = (page - 1) * limit
+  const endIndex = page * limit
+   try{
+    const resp = await Blog.find().populate({"path": "category", match:{"slug":req.params.slug}}).sort({createdAt: 'desc'}).skip(parseInt(startIndex)).limit(parseInt(limit)).exec();
+    const blogs = resp.filter(function(i){
+          return i.category != null;
+        });
+    res.send(blogs);
+   } catch(error){
+      if(error){
+        console.log(error);
+      }
+   }
+})
 
 
 router.get("/:id/edit", function(req, res){

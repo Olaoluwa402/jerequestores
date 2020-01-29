@@ -1,25 +1,45 @@
 
 
 <% if(currentUser && currentUser.isAdmin ){ %>
- <div class="container" id="admin">
+ <div class="container-fluid" id="admin">
   <h2 class="text-center admin"> Admin Page </h2>
-  <ul class="nav nav-tabs">
-            <li class="nav-item mr-2 mb-2">
-              <a class="nav-link btn btn-lg btn-primary" href="/products/new">Add New Books</a>
+  <div class="row">
+    <div class="col-6 text-center">
+      <h3>Product Related</h3>
+        <ul class="">
+            <li class="">
+              <a class="" href="/products/new">Add Product</a>
             </li>
-            <li class="nav-item mr-2 mb-2">
-              <a class="nav-link btn btn-lg btn-primary" href="/category/new">Add New Categories</a>
+            <li class="">
+              <a class="" href="/category/new">Add Category</a>
             </li>
-            <li class="nav-item mr-2 mb-2">
-              <a class="nav-link btn btn-lg btn-primary" href="/category">All Categories</a>
+            <li class="">
+              <a class="" href="/category">All Categories</a>
             </li>
-            <li class="nav-item mr-2 mb-2">
-              <a class="nav-link btn btn-lg btn-primary" href="/shop/allorders">All Orders</a>
+            <li class="">
+              <a class="" href="/shop/allorders">All Orders</a>
             </li>
-             <li class="nav-item mr-2 mb-2">
-              <a class="nav-link btn btn-lg btn-primary" href="/admin/settings">Page limit Settings</a>
+             <li class="">
+              <a class="" href="/admin/settings">Page setting</a>
             </li>
         </ul>
+    </div>
+    <div class="col-6 text-center">
+      <h3>Blog Related</h3>
+        <ul class="">
+            <li class="">
+              <a class="" href="/blog/new">Add Blog</a>
+            </li>
+            <li class="">
+              <a class="" href="/blog-category/new">Add Category</a>
+            </li>
+            <li class="">
+              <a class="" href="/blog-category">All Categories</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+ 
  </div>
 <%} else {%>
   <div class="container">

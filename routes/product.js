@@ -100,10 +100,7 @@ cloudinary.config({
 
 // ajax call
 router.get("/get-products/:page/:limit", async (req, res) => {
-	// let query =  Book.find().sort({createdAt: 'desc'}).skip(parseInt(req.params.page)).limit(parseInt(req.params.limit));
- //  if (req.query.book_title != null && req.query.book_title != ''){
- //     query = query.regex('book_title', new RegExp(req.query.book_title, 'i'));
- //  }
+
   const page = req.params.page;
   const limit =req.params.limit;
 
@@ -112,10 +109,6 @@ router.get("/get-products/:page/:limit", async (req, res) => {
    try{
     const  products = await Product.find().sort({createdAt: 'desc'}).skip(parseInt(startIndex)).limit(parseInt(req.params.limit));
     res.send(products);
-      // res.render("book/landing", {
-      //   books: books,
-      //   searchOptions: req.query,
-      // });
    } catch(error){
       if(error){
         console.log(error);
@@ -220,8 +213,21 @@ router.get("/:slug", function(req, res){
             req.flash("error", "Product not found*")
            res.redirect("/")
         } else {
+           res.locals.metaTags = { 
+              title: "Jereque stores categories of product", 
+              description: "categories categories ",   
+              keywords: "Jereque store online shopping blog post" 
+          }; 
+
+          res.locals.metaTagsProduct = {
+                meta: foundProduct, 
+            }; 
             //render show template with that Book
-            res.render("product/show", {product: foundProduct});
+            res.render("product/show", {
+               layout: "layouts/layout",
+              product: foundProduct
+
+            });
         }
     });
 });

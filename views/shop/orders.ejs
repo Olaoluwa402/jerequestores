@@ -27,7 +27,7 @@
            <td>
           <ul class="list-unstyled">
             <% order.items.forEach(function(item) { %>
-            <li><%= item.item.product_title%> | <span class="badge customBtn"><%= item.qty%></span> | <span class="badge customBtn"><span>&#8358</span><%= item.price %></span></li>
+            <li><%= item.item.product_title.substring(0, 30)%>... | <span class="badge customBtn"><%= item.qty%></span> | <span class="badge customBtn"><span>&#8358</span><%= item.price %></span></li>
              <% }); %>
           </ul> 
         </td>

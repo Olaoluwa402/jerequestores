@@ -25,7 +25,7 @@
                     </div>
                     </a>
                   <div class="card-body p-1 lineH">
-                      <p class="cardTitle "><%=product.product_title%></p>
+                      <p class="cardTitle "><%=product.product_title.substring(0, 50)%>...</p>
                       <% if (product.rating === 0) { %>
 			               <em style="font-size:0.9rem;">No reviews yet.</em>
 			           <% } else { %>

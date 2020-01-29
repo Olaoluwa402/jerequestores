@@ -19,7 +19,7 @@
 	                <li class="list-group-item d-flex  align-items-start pl-0">
 	                  <div class="shopping-cart-main-image"><img src="<%= product.item.image %>"></div>
 	                  <strong>
-	                  	<span><%= product.item.product_title %></span>
+	                  	<span><%= product.item.product_title.substring(0, 50) %>...</span>
 	                  	<span class="badge customBtn "><span>&#8358</span><%= product.price%></span>
 	                  	<a class="dropdown-item" href="/shop/increase/<%= product.item._id%>"><i class="fas fa-sort-amount-up"></i></a>
 	                  	<a class="dropdown-item" href="/shop/reduce/<%= product.item._id%>"><i class="fas fa-sort-amount-down"></i></a>
@@ -65,9 +65,8 @@
     		<h2 class="shopping-cart-side-help">Need Help?</h2>
     		<p>If you have any question or need help please <br>let our sales & customer service team assist you.</p>
     		<p>sales & customer service</p>
-    		<p>08034657689</p>
-    		<p>Mon - Thurs 8am - 8pm</p>
-    		<p>Friday 8am - 5pm</p>
+    		<p>08067405858 or 08022495563</p>
+    		<p>Mon - Fri 8am - 5pm</p>
     		<p>Sat 9am - 5pm</p>
     		<p>Sunday closed</p>
     	</div>

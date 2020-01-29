@@ -33,10 +33,22 @@ cloudinary.config({
 
 
 router.get("/", async (req, res, next) => {
-	try {
-    const blogs = await Blog.find().sort({createdAt: 'desc'});
+	  let blogs
+    let myTotal
+  try {
+      blogs = await Blog.find().sort({createdAt: 'desc'}).limit(12);
+      myTotal = await Blog.find();
+
+      res.locals.metaTags = { 
+        title: "Jereque blog post", 
+        description: "blog blog blog",   
+        keywords: "Jereque store online shopping blog post" 
+    }; 
+
       res.render("blog/index", {
+         layout: "layouts/layout",
         blogs: blogs,
+        myTotal: myTotal
       });
    } catch(error){
       if(error){
@@ -45,6 +57,23 @@ router.get("/", async (req, res, next) => {
    }
 });
 
+// ajax call
+router.get("/get-blogs/:page/:limit", async (req, res) => {
+
+  const page = req.params.page;
+  const limit =req.params.limit;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+   try{
+    const  blogs = await Blog.find().sort({createdAt: 'desc'}).skip(parseInt(startIndex)).limit(parseInt(req.params.limit));
+    res.send(blogs);
+   } catch(error){
+      if(error){
+        console.log(error);
+      }
+   }
+})
 
 
 
@@ -111,8 +140,21 @@ router.get("/:slug", function(req, res){
             req.flash("error", "Blog not found")
            res.redirect("/blog")
         } else {
+             res.locals.metaTags = {
+                title: "Jereque blog post Jereque store online shopping blog post Jereque store online shopping blog post Jereque store online shopping blog post v", 
+                description: "blog blog blog",   
+                keywords: "Jereque store online shopping blog post",
+            }; 
+
+            res.locals.metaTagsDynamic = {
+                meta: foundBlog, 
+            }; 
+
             //render show template with that Book
-            res.render("blog/show", {blog: foundBlog});
+            res.render("blog/show", {
+              layout: "layouts/layout",
+              blog: foundBlog,
+            });
         }
    });
 });

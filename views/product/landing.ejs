@@ -188,7 +188,7 @@
                    </div>
                    </a>
                   <div class="card-body p-1 lineH">
-                      <p class="cardTitle "><%=product.product_title%></p>
+                      <p class="cardTitle "><%=product.product_title.substring(0, 50)%>...</p>
                       <p><span class="price"><span>&#8358 </span><b><%= product.price%></b></span></p>
                       <a href="/shop/add-to-cart/<%= product._id%>" class="btn btn-outline-success text-success btn-sm"><i class="fa fa-shopping-cart"></i> Add to Cart</a> 
                       
@@ -265,7 +265,7 @@
           </a>
         </div>
         <div class="col-sm-6">
-            <h2><a class=""  href="/blog"><%= blog.title%></a></h2>
+            <h2><a class=""  href="/blog"><%= blog.title.substring(0, 50)%>...</a></h2>
             <span class="text-success"><em><a href="#"> <%=blog.author.lastName%></a></em></span><span class="text-success"> <br>
              <em><%= blog.createdAt.toDateString() %></em></span>
             <p><%- blog.body.substring(0, 200)%>...<a class="text-danger"  href="/blog">Read more</a></p> 

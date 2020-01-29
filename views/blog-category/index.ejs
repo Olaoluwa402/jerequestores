@@ -15,11 +15,11 @@
 				<% categories.forEach(blogcategory => { %>
 				<div class="mb-4 clearfix">
 					<span><%=blogcategory.name %></span>
-					<form id="delete-form"  action="/blog-category/<%= blogcategory.id %>?_method=DELETE" method="POST">
-						<button class="btn  btn-sm float-right ml-3" style="background: #e91e63; color:white" type="submit">Delete</button>
+					<form id="delete-form"  action="/blog-category/<%= blogcategory.id %>?_method=DELETE" method="POST" disabled>
+						<button class="btn  btn-sm float-right ml-3 " style="background: #e91e63; color:white" type="submit" disabled>Delete</button>
 						<input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
 				    </form>
-				    <span class="float-right" ><a class="btn  btn-sm" style="background: #e91e63; color:white" href="/blog-category/<%= blogcategory.id %>/edit"> Edit</a></span>blog
+				    <span class="float-right" ><a class="btn  btn-sm disabled" style="background: #e91e63; color:white" href="/blog-category/<%= blogcategory.id %>/edit"> Edit</a></span>blog
 				</div>
 				<%})%>
 			</div> 

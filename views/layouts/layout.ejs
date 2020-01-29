@@ -3,9 +3,36 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width-device-width, initial-scale=1">
-        <meta name=”description” content="Description of page here."/>
-        <meta name="keywords" content="free stock photos, pexels, design resource, high quality" />
+
+        <% if (locals.metaTags) { %>
+             <title><%= metaTags.title.substring(0, 50) %>...</title>
+            <meta name="description" content="<%= metaTags.description.substring(0, 150)%>...">    
+            <meta name="keywords" content="<%= metaTags.keywords%>"> 
+        <% } %>
+       
+        <!-- <meta name=”description” content="Description of page here."/>
+        <meta name="keywords" content="free stock photos, pexels, design resource, high quality" /> -->
         <link rel="canonical" href="original domain name">
+ 
+           <% if (locals.metaTagsDynamic) { %>
+           <!-- Open Graph data -->
+            <meta property="og:url"           content="https://localhost:3000/blog/" + <%=metaTagsDynamic.meta.slug %> />
+           <meta property="og:type"          content="website" />
+           <meta property="og:title"         content="<%= metaTagsDynamic.meta.title.substring(0, 50)%>..." />
+           <meta property="og:description"   content="<%- metaTagsDynamic.meta.body.substring(0, 150)%>..." />
+           <meta property="og:image"         content="<%= metaTagsDynamic.meta.image%>" />
+           <% } %>           
+
+           <% if (locals.metaTagsDynamic) { %>
+           <!-- Twitter Card data -->
+            <meta name="twitter:card" content="summary">
+            <meta name="twitter:site" content="@JerequeStores">
+            <meta name="twitter:title" content="<%= metaTagsDynamic.meta.title.substring(0, 50)%>...">
+            <meta name="twitter:description" content="<%- metaTagsDynamic.meta.body.substring(0, 150)%>">
+           <!--  <meta name="twitter:creator" content="@author_handle"> -->
+            <!-- Twitter summary card with large image must be at least 280x150px -->
+            <meta name="twitter:image:src" content="<%= metaTagsDynamic.meta.image%>"> 
+             <% } %>  
          <!-- <link rel="stylesheet" href="/css/reset.css"> -->
         <link rel="stylesheet" href="/css/normalize.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=poppins:400,500,700">
@@ -14,6 +41,14 @@
        <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
         
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+        <!-- <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+        <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-flat.css" />
+ -->
+
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/forms.css">
         <link rel="stylesheet" href="/css/starability-basic.min.css">
@@ -26,9 +61,13 @@
          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"> </script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"> </script>
-        <title>JereQue Online Shopping Store</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+      
    </head>
     <body>
+    	 <noscript>
+	      You need to enable JavaScript to run this app.
+	    </noscript>
         <%- include('../partials/header.ejs') %>
          <%- body %>
 
@@ -67,9 +106,9 @@
         <div class="col-12">
             <h3>Connect</h3>
             <div class="col-12 social padding">
-                <a href="#"><i class="fab fa-facebook "></i></a>
-                <a href="#"><i class="fab fa-twitter "></i></a>
-                <a href="#"><i class="fab fa-instagram "></i></a>
+                <a href="https://facebook.com/JerequeStores" title="facebook"><i class="fab fa-facebook "></i></a>
+                <a href="https://twitter.com/JerequeStores" title="twitter"><i class="fab fa-twitter "></i></a>
+                <a href="https://instagram.com/jereque_stores" title="instagram"><i class="fab fa-instagram "></i></a>
             </div>
         </div>
     </div> 
@@ -106,7 +145,7 @@
 
     <div class="col-12 text-center">
         <hr class="light-100">
-        <p><strong>&copy www.jereque-stores.com</strong></p>
+        <p><strong>&copy www.jerequestores.com</strong></p>
     </div>
 </div>
 </footer>
@@ -116,6 +155,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
 
     </div> 
     </div>

@@ -27,37 +27,33 @@
 <section class="container-fluid mt-4 " style="">
 	<div class="row">
 		<div class="col-12 col-lg-9">
-			<div class="row">
+			<div class="row" id="blog">
 				<% blogs.forEach(blog => { %>
 					<div class="col-12 col-sm-6 col-lg-4">
 						<div class="card border-0 p-3 mb-" style="">
 						  <a class=""  href="/blog/<%= blog.slug %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
 						  <div class="card-body pl-1 pr-1">
-						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title%></a></h5>
+						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title.substring(0, 50)%>...</a></h5>
 						  	<em><%= blog.createdAt.toDateString() %></em>
-               <!--  <button type="button " class="pl-2" onclick="actOnBlog(event);"
-                    data-blog-id="">Like
-                </button> -->
+              
                 <span id="likes-count-<%= blog._id%>"><%= blog.likes%></span>
 						    <p class="card-text" ><%- blog.body.substring(0, 200)%>...</p>
 						    <a class="readmore"  href="/blog/<%= blog.slug %>">Read more</a>
-                <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
-                </span>
+                <!-- <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
+                </span> -->
                 <!-- loaded popover content -->
                   <div class="container-fluid" id="popover-content" style="display: none">
                      <div class="row">
                         <div class="col-6">
                             <ul class="list-group custom-popover">
-                              <li class="list-group-item"><a href="#">1</a></li>
-                              <li class="list-group-item"><a href="#">2</a></li>
-                              <li class="list-group-item"><a href="#">3</a></li>
+                              <li class="list-group-item"><a href="#" title="facebook"><img src="/img/facebookicon.png" class="img-fluid w-100" ></a></li>
+                              <li class="list-group-item"><a href="#" title="instagram"><img src="/img/instagram.png" class="img-fluid w-100" ></a></li>
                             </ul>
                         </div>
                         <div class="col-6">
                              <ul class="list-group custom-popover">
-                              <li class="list-group-item"><a href="#">1</a></li>
-                              <li class="list-group-item"><a href="#">2</a></li>
-                              <li class="list-group-item"><a href="#">3</a></li>
+                              <li class="list-group-item"><a href="#" title="twitter"><img src="/img/twitter.png" class="img-fluid w-100" ></a></li>
+                              <li class="list-group-item"><a href="#" title="yelp"><img src="/img/yelp.png" class="img-fluid w-100" ></a></li>
                             </ul>
                         </div>
                      </div>
@@ -110,11 +106,9 @@
                   	    <div class="row padding">
                   	        <div class="col-12">
                   	            <div class="col-12 social padding">
-                  	                <a href="#"><i class="fab fa-facebook"></i></a>
-                  	                <a href="#"><i class="fab fa-twitter"></i></a>
-                  	               <!--  <a href="#"><i class="fab fa-goggle-plus-g"></i></a> -->
-                  	                <a href="#"><i class="fab fa-instagram"></i></a>
-                  	                <a href="#"><i class="fab fa-youtube"></i></a>
+                  	                <a href="https://facebook.com/JerequeStores" title="facebook"><i class="fab fa-facebook"></i></a>
+                  	                <a href="https://twitter.com/JerequeStores" title="twitter"><i class="fab fa-twitter"></i></a>
+                  	                <a href="https://instagram.com/jereque_stores" title="instagram"><i class="fab fa-instagram"></i></a>
                   	            </div>
                   	        </div>
                   	    </div> 
@@ -137,8 +131,8 @@
                       <div class="media">
               			    <img src="<%= blog.image%>" class="align-self-start mr-3 w-25" alt="...">
               			  <div class="media-body">
-              			    <h5 class="mt-0"><%= blog.title%></h5>
-              			    <em>Created: <%= blog.createdAt.toDateString() %></em>
+              			    <h5 class="mt-0"><small><%= blog.title%></h5></small>
+              			    <small><em>Created: <%= blog.createdAt.toDateString() %></em></small>
               			  </div>
               		  </div>
                   </a>
@@ -157,22 +151,8 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
                   <ul>
-                    <li><a href="/category/adwords-digital-advertizing">AdWords/Digital Advertising</a></li>
-                    <!-- <li><a href="/category/5e1263608024581920108985">Analytics</a></li>
-                    <li><a href="#">Bing Predicts NFL</a></li>
-                    <li><a href="#">Content</a></li>
-                    <li><a href="/category/5e1263518024581920108984">Conversion Optimization</a></li>
-                    <li><a href="/category/5e12631f8024581920108983">eCommerce</a></li>
-                    <li><a href="/category/5e12630f8024581920108982">Email Marketing</a></li> -->
-                    <li><a href="/category/internet-marketing-mysteries">Internet Marketing Mysteries</a></li>
-                   <!--  <li><a href="/category/5e1262c98024581920108980">Local Listings</a></li>
-                    <li><a href="/category/5e1262a6802458192010897f">Mobile Web Design</a></li>
-                    <li><a href="/category/5e126297802458192010897e">Marketing</a></li>
-                    <li><a href="#">Olaoluwa News</a></li>
-                    <li><a href="">Search Engine Optimization</a></li>
-                    <li><a href="/category/5e126279802458192010897d">Social Media</a></li>
-                    <li><a href="/category/5e1259520c3d381570bef897">Web Design</a></li>
-                    <li><a href="/category/5e1259240c3d381570bef896">Web Development</a></li> -->
+                    <li><a href="/blog-category/adwords-digital-advertizing2">AdWords/Digital Advertising</a></li>
+                    <li><a href="/blog-category/internet-marketing-mysteries">Internet Marketing Mysteries</a></li>
                   </ul>
                 </div>
               </div>
@@ -201,4 +181,109 @@
 		</div>
 	</div>
 </section>
+
+<script>
+  let page = 1; 
+  let limit = 12;
+  let myTotal = <%= myTotal.length%>; 
+  
+  
+ function getNext(){
+  if(page * limit < myTotal){
+    page++;
+
+
+    $.ajax({
+            url: "/blog/get-blogs/" + page + "/" + limit,
+            type:"GET",
+            success: function(response){
+              console.log(response);
+               renderBooks(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+              console.log(jqXHR);
+              console.log(textStatus);
+              console.log(errorThrown);
+            }
+ 
+        });
+   }
+    console.log("next page is" + page);
+   
+ }
+
+
+ function getPrevious(){
+  if(page > 1){
+    page--;
+
+    $.ajax({
+            url: "/blog/get-blogs/" + page + "/" + limit,
+            type:"GET",
+            success: function(response){
+              console.log(response);
+               renderBooks(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+              console.log(jqXHR);
+              console.log(textStatus);
+              console.log(errorThrown);
+            }
+ 
+        });
+  }
+    console.log("previous page is" + page);
+  
+ }
+
+
+
+
+  function renderBooks(blogs) {
+    if(blogs.length > 0){
+      let html ="";
+
+        $.each(blogs, function(i, blog){
+         html +=' <div class="col-12 col-sm-6 col-lg-4">';
+             html +=' <div class="card border-0 p-3 mb-" style="">';
+               html +=' <a class=""  href="/blog/' + blog.slug + '"><img src="' + blog.image + '" class="card-img-top img-fluid" style="" alt="blog-image"></a>';
+               html +=' <div class="card-body pl-1 pr-1">';
+                 html +=' <h5 class="card-title"><a class=""  href="/blog/' + blog.slug + '">' + blog.title + '</a></h5>';
+                 html +=' <em>' + new Date (blog.createdAt).toDateString() + '</em>';
+              
+                 html +=' <span id="likes-count-' + blog._id + '">' + blog.likes + '</span>';
+                 html +=' <p class="card-text" >' + blog.body.substring(0, 200) + '...</p>';
+                html +='  <a class="readmore"  href="/blog/' + blog.slug + '">Read more</a>';
+                 html +=' <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>';
+                html +='</span>';
+               
+                   html +=' <div class="container-fluid" id="popover-content" style="display: none">';
+                      html +=' <div class="row">';
+                         html +=' <div class="col-6">';
+                             html +=' <ul class="list-group custom-popover">';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                             html +=' </ul>';
+                         html +=' </div>';
+                         html +=' <div class="col-6">';
+                              html +=' <ul class="list-group custom-popover">';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                             html +=' </ul>';
+                         html +=' </div>';
+                      html +=' </div>';
+                   html +=' </div>';
+
+               html +=' </div>';
+               html +=' <hr>';
+             html +=' </div>';
+           html +=' </div>';
+  
+      });
+
+       $("#blog").html(html);
+  }
+}
+   
+</script>
 

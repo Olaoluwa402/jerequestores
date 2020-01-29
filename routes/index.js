@@ -37,7 +37,15 @@ router.get("/", async (req, res) => {
    try {
     const products = await query.exec();
     const myTotal = await Product.find();
+
+    res.locals.metaTags = { 
+        title: "Jereque online shopping store", 
+        description: "Here at Jereque Stores, we ensure our customers get; value for their money, easy delivery with our nationwide delivery system, beautiful and unique household items for your homes, unique kitchen wares for stress free work in the kitchen. Gift and Souvenir items for all occasions, beautiful and unique kitchen decoration items. Your Home, Your Goodness!",   
+        keywords: "Jereque store online shopping" 
+    }; 
+
       res.render("product/landing", {
+        layout: "layouts/layout",
         products: products,
         searchOptions: req.query,
         limitResult: limitResult,

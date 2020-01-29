@@ -63,9 +63,10 @@ router.post("/", async (req, res) => {
     }
  });
 
-// Render all books under each category
+// Render all products under each category
 router.get("/:slug", async (req, res) => {
 	// res.send("Category" + req.params.id)
+   
 	try{ 
 		const resp = await Product.find().sort({createdAt: 'desc'}).populate({"path": "category", match:{"slug":req.params.slug}}).limit(20).exec();
 		const products = resp.filter(function(i){
@@ -77,7 +78,21 @@ router.get("/:slug", async (req, res) => {
         });
     const catShow = await Category.find({"slug":req.params.slug});
     const categoryId = req.params.slug
-			 res.render("category/show", {products: products, myTotal: myTotal, categoryId:categoryId, catShow:catShow});
+
+      res.locals.metaTags = { 
+        title: "Jereque stores categories of product", 
+        description: "categories categories ",   
+        keywords: "Jereque store online shopping blog post" 
+    }; 
+
+
+			 res.render("category/show", {
+         layout: "layouts/layout",
+          products: products, 
+          myTotal: myTotal, 
+          categoryId:categoryId,
+           catShow:catShow
+         });
 	} catch(err){
           console.log(err)
 		    	req.flash("error", "something went wrong with fetching associated products");

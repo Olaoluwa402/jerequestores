@@ -1,0 +1,298 @@
+
+<!-- Full Page Intro -->
+          <div class="view " style="background-image: url('/img/pexels6.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: center center; height:400px">
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-gradient align-items-center">
+              <!-- Content -->
+              <div class="container">
+                <!--Grid row-->
+                <div class="row">
+                  <!--Grid column-->
+                  <div class="col-12 text-light mt-xl-5 mb-5" data-wow-delay="">
+                    <h1 class="h1-responsive font-weight-bold mt-sm-5">Category Archives: 
+                    	<% catShow.forEach(cate => { %>
+								<span><%= cate.name%> </span>
+						<%})%>
+					                    		
+                    </h1>
+                    <hr class="hr-light">
+                  </div>
+                  <!--Grid column-->
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </div>
+              <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+          </div>
+          <div class="overlay"></div>
+
+
+<!-- blog section -->
+<section class="container-fluid mt-4 " style="">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row" id="blogs">
+				<% blogs.forEach(blog => { %>
+					<div class="col-12 col-sm-4">
+						<div class="card border-0 p-3 mb-" style="">
+						  <a class=""  href="/blog/<%= blog._id %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
+						  <div class="card-body">
+						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog._id %>"><%= blog.title%></a></h5>
+						  	<em><%= blog.createdAt.toDateString() %></em>
+                <!-- <button type="button " class="pl-2" onclick="actOnBlog(event);"
+                    data-blog-id="">
+                </button> -->
+                <span id="likes-count-<%= blog._id%>"><%= blog.likes%></span>
+						    <p class="card-text" ><%- blog.body.substring(0, 200)%>...</p>
+						    <a class=""  href="/blog/<%= blog._id %>">Read more</a>
+                <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
+                </span>
+                <!-- loaded popover content -->
+                  <div class="container-fluid" id="popover-content" style="display: none">
+                     <div class="row">
+                        <div class="col-6">
+                            <ul class="list-group custom-popover">
+                              <li class="list-group-item"><a href="#" title="facebook"><img src="/img/facebookicon.png" class="img-fluid w-100" ></a></li>
+                              <li class="list-group-item"><a href="#" title="instagram"><img src="/img/instagram.png" class="img-fluid w-100" ></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                             <ul class="list-group custom-popover">
+                              <li class="list-group-item"><a href="#" title="twitter"><img src="/img/twitter.png" class="img-fluid w-100" ></a></li>
+                              <li class="list-group-item"><a href="#" title="yelp"><img src="/img/yelp.png" class="img-fluid w-100" ></a></li>
+                            </ul>
+                        </div>
+                     </div>
+                  </div>
+
+						  </div>
+						  <hr>
+						</div>
+					</div>
+					<% }) %>
+			</div>
+       <!-- next/previous button -->
+    <div class="row mb-2">
+      <div class="  col-md-12">
+        <button type="button" class="btn btn-success " onClick="getPrevious()";>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Previous
+        </button>
+        <button type="button" class="btn btn-success float-right buttonfloat" onClick="getNext()";>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Next
+        </button>
+      </div>
+    </div>
+		</div>
+		<div class="col-md-3">
+			<div class="" style="height:auto">
+				<div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    CONNECT WITH US
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  <!--connect container fluid -->
+          	<div class="container-fluid padding">
+          	    <div class="row padding">
+          	        <div class="col-12">
+          	            <div class="col-12 social padding">
+          	                <a href="#" title="facebook"><i class="fab fa-facebook"></i></a>
+          	                <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
+          	               <!--  <a href="#"><i class="fab fa-goggle-plus-g"></i></a> -->
+          	                <a href="#" title="instagram"><i class="fab fa-instagram"></i></a>
+          	                <a href="#" title="yelp"><i class="fab fa-yelp"></i></a>
+          	            </div>
+          	        </div>
+          	    </div> 
+          	</div>	
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    LATEST POSTS
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                    	<% latestBlogs.forEach(blog => { %>
+                      <a class=""  href="/blogs/<%= blog._id %>">
+                      <div class="media">
+              			    <img src="<%= blog.image%>" class="align-self-start mr-3 w-25" alt="...">
+              			  <div class="media-body">
+              			    <h5 class="mt-0 "><small><%= blog.title%></small></h5>
+              			    <small><em>Created: <%= blog.createdAt.toDateString() %></em></small>
+              			  </div>
+              		  </div>
+                  </a>
+              		<%})%>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    CATEGORIES
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="/blog-category/adwords-digital-advertizing2">AdWords/Digital Advertising</a></li>
+                    <li><a href="/blog-category/internet-marketing-mysteries">Internet Marketing Mysteries</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    ARCHIVES
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="#">January 2020</a></li>
+                    <li><a href="#">December 2019</a></li>
+                    <li><a href="#">November 2019</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<script>
+  let page = 1; 
+  let limit = 12;
+  let myTotal = <%= myTotal.length%>; 
+  let categoryId =  "<%=categoryId%>";
+  
+  
+ function getNext(){
+  if(page * limit < myTotal){
+    page++;
+
+
+    $.ajax({
+            url: "/blog-category/" + categoryId + "/get-category/" + page + "/" + limit,
+            type:"GET",
+            success: function(response){
+              console.log(response);
+               renderBooks(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+              console.log(jqXHR);
+              console.log(textStatus);
+              console.log(errorThrown);
+            }
+ 
+        });
+   }
+    console.log("next page is" + page);
+   
+ }
+
+
+ function getPrevious(){
+  if(page > 1){
+    page--;
+
+    $.ajax({
+            url: "/blog-category/" + categoryId + "/get-category/" + page + "/" + limit,
+            type:"GET",
+            success: function(response){
+              console.log(response);
+               renderBooks(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+              console.log(jqXHR);
+              console.log(textStatus);
+              console.log(errorThrown);
+            }
+ 
+        });
+  }
+    console.log("previous page is" + page);
+  
+ }
+
+
+
+
+  function renderBooks(blogs) {
+    if(blogs.length > 0){
+      let html ="";
+
+        $.each(blogs, function(i, blog){
+         html +=' <div class="col-12 col-sm-6 col-lg-4">';
+             html +=' <div class="card border-0 p-3 mb-" style="">';
+               html +=' <a class=""  href="/blog/' + blog.slug + '"><img src="' + blog.image + '" class="card-img-top img-fluid" style="" alt="blog-image"></a>';
+               html +=' <div class="card-body pl-1 pr-1">';
+                 html +=' <h5 class="card-title"><a class=""  href="/blog/' + blog.slug + '">' + blog.title + '</a></h5>';
+                 html +=' <em>' + new Date (blog.createdAt).toDateString() + '</em>';
+              
+                 html +=' <span id="likes-count-' + blog._id + '">' + blog.likes + '</span>';
+                 html +=' <p class="card-text" >' + blog.body.substring(0, 200) + '...</p>';
+                html +='  <a class="readmore"  href="/blog/' + blog.slug + '">Read more</a>';
+                 html +=' <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>';
+                html +='</span>';
+               
+                   html +=' <div class="container-fluid" id="popover-content" style="display: none">';
+                      html +=' <div class="row">';
+                         html +=' <div class="col-6">';
+                             html +=' <ul class="list-group custom-popover">';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                             html +=' </ul>';
+                         html +=' </div>';
+                         html +=' <div class="col-6">';
+                              html +=' <ul class="list-group custom-popover">';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                               html +=' <li class="list-group-item"><a href="#"><img src="/img/facebookicon.png"></a></li>';
+                             html +=' </ul>';
+                         html +=' </div>';
+                      html +=' </div>';
+                   html +=' </div>';
+
+               html +=' </div>';
+               html +=' <hr>';
+             html +=' </div>';
+           html +=' </div>';
+  
+      });
+
+       $("#blogs").html(html);
+  }
+}
+   
+</script>

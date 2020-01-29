@@ -63,6 +63,7 @@ app.use(cookieParser());
 app.use(expressSanitizer());
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+// app.set('view', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.set("layout", "layouts/layout");
 app.use(expressLayouts);
@@ -110,9 +111,8 @@ app.use("/shop", shoppingRoutes);
 app.use("/products",  productRoutes);
 app.use("/products/:slug/reviews", reviewRoutes);
 
-
-app.use("/blog-category", blogCategoryRoutes);
 app.use("/blog", blogRoutes);
+app.use("/blog-category", blogCategoryRoutes);
 app.use("/blog/:slug/comments", commentRoutes);
 app.use("/blog/:slug/comments/:comment_id/replies", replyCommentsRoutes);
 

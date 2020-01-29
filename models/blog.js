@@ -26,7 +26,7 @@ const slug = require('mongoose-slug-updater');
          category:{
           type: mongoose.Schema.Types.ObjectId,
           required:true,
-          ref: "Category",
+          ref: "Blog_Category",
           name: String
         },
         createdAt:  {type: Date, default: Date.now}
