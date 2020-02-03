@@ -21,15 +21,24 @@ a:focus {
     transition: all 0.3s;
 }
 
+/* navbar */
+
+
 .navbar {
-    padding: 0 10px;
+    padding: 5px 10px;
     background: #fff;
     border: none;
     border-radius: 0;
-   /*  margin-bottom: 40px; */
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-nav li{
+    padding-right: 20px;
+}
+
+.navbar .nav-link{
+    font-size: 1.1em !important;
+}
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
@@ -257,14 +266,10 @@ a[data-toggle="collapse"] {
 }
 
 /* landing carousel */
-.landingSlide{
-    
-}
-
-.landingSlide .carousel-inner {
+.landing-view {
+    width: 100%;
     height: 100%;
 }
-
 
 
 
@@ -310,7 +315,7 @@ a[data-toggle="collapse"] {
 }
 .topnav .navbar-brand{
     color:#e91e63 ;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.2rem;
 }
 
@@ -319,25 +324,17 @@ a[data-toggle="collapse"] {
     text-align: center;
 }
 
+.topnav .nav-item .nav-link{
+    padding-right: .3rem !important;
+    font-size: .8em !important;
+    text-align: center;
+}
+
 .topnav ul li a:hover{
    color: #e91e63 ;
 
 }
 
-.topnav .nav-link{
-    font-size: .9em !important;
-    text-align: center;
-}
-/* navbar */
-.navbar{
-    padding: 0.8rem;
-}
-.navbar-nav li{
-    padding-right: 20px;
-}
-.nav-link{
-    font-size: 1.1em !important;
-}
 
 /* slider */
 
@@ -709,12 +706,13 @@ hr.light-100{
             padding: 0.9rem;
         }
 
-         /* #sidebar {
-            margin-left: -250px;
+          .landing-view h2{
+            font-size: 2.5rem !important;
         }
-        #sidebar.active {
-            margin-left: 0;
-        } */
+
+         .landing-view p{
+            font-size: 1rem !important;
+         }
 
         .cardlanding{
             text-align: center;
@@ -757,11 +755,11 @@ hr.light-100{
         }
 
         .landing-view h2{
-            font-size: 4rem !important;
+            font-size: 2.5rem !important;
         }
 
          .landing-view p{
-            font-size: 1.5rem;
+            font-size: 1rem !important;
          }
         .boxes1 .fa-star {
             padding: 0;

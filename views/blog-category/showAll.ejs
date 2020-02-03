@@ -1,6 +1,6 @@
 
 <!-- Full Page Intro -->
-          <div class="view " style="background-image: url('/img/pexels6.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; background-position: center center; height:400px">
+          <div class="view " style="background-image: url('/img/pexels6.jpg'); background-repeat: no-repeat; background-size: 100% 100%; background-attachment: fixed; background-position: center center; width:100% height:100%">
             <!-- Mask & flexbox options-->
             <div class="mask rgba-gradient align-items-center">
               <!-- Content -->
@@ -37,18 +37,18 @@
 				<% blogs.forEach(blog => { %>
 					<div class="col-12 col-sm-4">
 						<div class="card border-0 p-3 mb-" style="">
-						  <a class=""  href="/blog/<%= blog._id %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
+						  <a class=""  href="/blog/<%= blog.slug %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
 						  <div class="card-body">
-						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog._id %>"><%= blog.title%></a></h5>
+						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title%></a></h5>
 						  	<em><%= blog.createdAt.toDateString() %></em>
                 <!-- <button type="button " class="pl-2" onclick="actOnBlog(event);"
                     data-blog-id="">
                 </button> -->
                 <span id="likes-count-<%= blog._id%>"><%= blog.likes%></span>
 						    <p class="card-text" ><%- blog.body.substring(0, 200)%>...</p>
-						    <a class=""  href="/blog/<%= blog._id %>">Read more</a>
-                <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
-                </span>
+						    <a class="readmore"  href="/blog/<%= blog.slug %>">Read more</a>
+                <!-- <span  class="share float-right" data-toggle="popover" data-placement="bottom"><i  class="fas fa-share-alt"></i>
+                </span> -->
                 <!-- loaded popover content -->
                   <div class="container-fluid" id="popover-content" style="display: none">
                      <div class="row">
@@ -116,7 +116,7 @@
           	                <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
           	               <!--  <a href="#"><i class="fab fa-goggle-plus-g"></i></a> -->
           	                <a href="#" title="instagram"><i class="fab fa-instagram"></i></a>
-          	                <a href="#" title="yelp"><i class="fab fa-yelp"></i></a>
+          	                <!-- <a href="#" title="yelp"><i class="fab fa-yelp"></i></a> -->
           	            </div>
           	        </div>
           	    </div> 
