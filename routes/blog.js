@@ -81,7 +81,7 @@ router.post("/", async (req, res, next) => {
     upload(req, res, async (err) =>{
         if(err){
             req.flash('error', err.message + ' ' + "Image size should not exceed 200kb");
-            res.redirect('/blogs');
+            res.redirect('/blog');
             // const categories = await Category.find({});
             // const book = await Book.find({});
             // res.render('book/new', {msg:err, categories:categories, book:book});
@@ -91,7 +91,7 @@ router.post("/", async (req, res, next) => {
            if(err){
                   //console.log( "There is an error" + err)
                   req.flash('error', "uploading failed. Please try again");
-                  return res.redirect('/blogs/new');
+                  return res.redirect('/blog/new');
            }
                  console.log(result);
                   // add cloudinary url and  image's public_id for the image to the story object under image property
@@ -110,7 +110,7 @@ router.post("/", async (req, res, next) => {
                  if(err){
                  	console.log(err);
                  req.flash("error", "error saving to database. Please ensure all fields are field");
-                 res.redirect("/blogs/new");
+                 res.redirect("/blog/new");
                  } else{
                  //redirect back to books page
                    req.flash("success", "successfully posted new Blog");
@@ -176,7 +176,7 @@ router.put("/:id", async (req, res) => {
         if(err){
             console.log(err);
               if(foundBlog != null){
-                render(blog/edit)
+                render("blog/edit")
               } else{
                 res.redirect("/blog");
               }

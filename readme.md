@@ -7,4 +7,5 @@
 * setup connection to database and server
 * setup the / route and test if all is working fine
 
- 
+ #FC261E
+ #A31215

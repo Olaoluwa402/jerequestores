@@ -8,7 +8,7 @@
 						<input class="form-control" id="uname" type="text" name="name" value= "<% if (locals.searchOptions != null){ %><%= searchOptions.name%> <% }%>" placeholder="category name">
 					</div>
 					
-				    <button type="submit" class="btn btn-lg  btn-block" style="background: #e91e63; color:white">Search</button>
+				    <button type="submit" class="btn btn-lg  btn-block customBtn" style="">Search</button>
 				</form>
 				<div class="mt-2"><a href="/blog-category/new"><i class="fa fa-arrow-left"></i> Go back</a></div>
 				<br>
@@ -16,10 +16,10 @@
 				<div class="mb-4 clearfix">
 					<span><%=blogcategory.name %></span>
 					<form id="delete-form"  action="/blog-category/<%= blogcategory.id %>?_method=DELETE" method="POST" disabled>
-						<button class="btn  btn-sm float-right ml-3 " style="background: #e91e63; color:white" type="submit" disabled>Delete</button>
+						<button class="btn  btn-sm float-right ml-3  customBtn" style="" type="submit" disabled>Delete</button>
 						<input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
 				    </form>
-				    <span class="float-right" ><a class="btn  btn-sm disabled" style="background: #e91e63; color:white" href="/blog-category/<%= blogcategory.id %>/edit"> Edit</a></span>blog
+				    <span class="float-right" ><a class="btn  btn-sm disabled customBtn" style="" href="/blog-category/<%= blogcategory.id %>/edit"> Edit</a></span>blog
 				</div>
 				<%})%>
 			</div> 
