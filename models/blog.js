@@ -15,7 +15,7 @@ const slug = require('mongoose-slug-updater');
                type: mongoose.Schema.Types.ObjectId,
                ref: 'User'
            },
-           lastName: String,
+           name: String,
           },
          comments: [
                 {

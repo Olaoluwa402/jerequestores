@@ -87,7 +87,7 @@ router.post("/", async (req, res, next) => {
             // res.render('book/new', {msg:err, categories:categories, book:book});
         }else{
         	// console.log(req.file);
-           cloudinary.uploader.upload(req.file.path, function(err, result) {
+           cloudinary.uploader.upload(req.file.path, {width:800, height:700}, function(err, result) {
            if(err){
                   //console.log( "There is an error" + err)
                   req.flash('error', "uploading failed. Please try again");
@@ -102,7 +102,7 @@ router.post("/", async (req, res, next) => {
                  const body = req.sanitize(req.body.blog.body);
                  const author = {
                                   id: req.user._id,
-                                  lastName: req.user.lastName
+                                  name: req.user.firstName + ' ' + req.user.lastName
                               };
                  const newBlog = {title:title,  category: category, image:image, body:body, imageId:imageId, author:author};
                  // save to db
@@ -190,7 +190,7 @@ router.put("/:id", async (req, res) => {
                       if (req.file) {
                         try {
                           await cloudinary.uploader.destroy(foundBlog.imageId);
-                          const result = await cloudinary.uploader.upload(req.file.path);
+                          const result = await cloudinary.uploader.upload(req.file.path, {width:800, height:700});
                           foundBlog.imageId = result.public_id;
                           foundBlog.image = result.secure_url;
                       } catch(err) {

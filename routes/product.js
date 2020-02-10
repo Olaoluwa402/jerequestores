@@ -266,7 +266,7 @@ router.put("/:id",  middleware.adminAccess, function (req, res)  {
 
                   		if (req.files) {
                   			let res_promises = req.files.map(file => new Promise((resolve, reject) => {
-                            cloudinary.uploader.upload(file.path, function(error, result){
+                            cloudinary.uploader.upload(file.path, {width:800, height:800}, function(error, result){
                                 if(error){
                                   req.flash('error', "Something went wrong with the file upload. Please try again");
                                   res.redirect('/products/new')

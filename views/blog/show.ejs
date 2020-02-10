@@ -34,7 +34,7 @@
 	<!-- <i class="fas fa-thumbs-up"></i> -->
 	<div class="row">
 		<div class="col-12">
-			<em>posted by: <a href="/users/<%=blog.author.id %>"> <%=blog.author.lastName%></a></em><br>
+			<em>posted by: <a href="/users/<%=blog.author.id %>"> <%=blog.author.name%></a></em><br>
 			<em><%= blog.createdAt.toDateString() %></em>
 			<span class="pl-2" onclick="actOnBlog(event);"
                  data-blog-id="<%= blog._id%>">

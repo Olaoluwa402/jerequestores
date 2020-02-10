@@ -34,6 +34,7 @@
 						  <a class=""  href="/blog/<%= blog.slug %>"><img src="<%= blog.image%>" class="card-img-top img-fluid" style="" alt="blog-image"></a>
 						  <div class="card-body pl-1 pr-1">
 						  	<h5 class="card-title"><a class=""  href="/blog/<%= blog.slug %>"><%= blog.title.substring(0, 50)%>...</a></h5>
+                <em><b><%=blog.author.name%></b></em>
 						  	<em><%= blog.createdAt.toDateString() %></em>
               
                 <span id="likes-count-<%= blog._id%>"><%= blog.likes%></span>
