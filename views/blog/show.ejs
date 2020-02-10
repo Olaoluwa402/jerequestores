@@ -121,7 +121,7 @@
                         <div class="media">
 						  <img src="/img/user2.jpg" class="mr-1" alt="user's profile picture">
 						  <div class="media-body">
-						    <span class="mt-0"><%= comment.author.lastName %></span>
+						    <span class="mt-0"><%= comment.author.name %></span>
 						    <p class="float-sm-right"><%= comment.createdAt.toDateString() %></p>
 						    <p><%= comment.text %>  </p>
 						    <a style="text-transform: lowercase" class="" href="/blog/<%= blog.slug %>/comments/<%= comment._id %>/replies/new">reply</a>
@@ -138,7 +138,7 @@
 						        <img src="/img/user2.jpg" class="mr-1" alt="user's profile picture">
 						      </a>
 						      <div class="media-body">
-						        <span class="mt-0"><%= reply.author.lastName %></span>
+						        <span class="mt-0"><%= reply.author.name %></span>
 						        <p class="float-sm-right"><%=reply.createdAt.toDateString() %></p>
 						        <p><%=reply.text %></p>
 						            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){%>
