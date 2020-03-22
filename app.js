@@ -13,6 +13,7 @@ const  flash       = require("connect-flash");
 const { check, validationResult } = require('express-validator');
  const    expressSanitizer = require("express-sanitizer");
 const session    = require("express-session");
+const cors = require("cors");
 const passport    = require("passport");
 const LocalStrategy = require("passport-local").Strategy; 
 const MongoStore = require('connect-mongo')(session);
@@ -68,7 +69,7 @@ app.set("view engine", "ejs");
 app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 
-
+ app.use(cors());
 
 //require moment
 app.locals.moment = require('moment');
