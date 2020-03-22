@@ -50,14 +50,14 @@
 	</div>
 	<div class="row">
 		 <% if(currentUser && currentUser.isAdmin){%>
-		 <div>
-		 	<a class="btn pr-3 customBtn" href="/blog/<%=blog._id%>/edit">EDIT</a>
-		 </div>
-         <form  method="POST" action="/blog/<%=blog._id%>?_method=DELETE" disabled>
-            <button class="btn ml-4 customBtn" type="">DELETE</button>
-            <input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
-         </form>
-             <% }%>
+			 <div>
+			 	<a class="btn pr-3 customBtn" href="/blog/<%=blog._id%>/edit">EDIT</a>
+			 </div>
+	         <form  method="POST" action="/blog/<%=blog._id%>?_method=DELETE" disabled>
+	            <button class="btn ml-4 customBtn" type="">DELETE</button>
+	            <input class="form-control"  type="hidden" name="_csrf" value="<%= csrfToken%>">
+	         </form>
+         <% }%>
 	</div>
 </div>
 
